@@ -27,5 +27,3 @@ export async function getSheetsData(sheet: string) {
     return;
   }
 }
-
-export const data = getSheetsData("Timetable");

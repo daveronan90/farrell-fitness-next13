@@ -127,7 +127,7 @@ const GoogleMapsReviews: React.FC = async () => {
       <section className="my-12">
         <div className="">
           <div className="flex flex-wrap -m-4">
-            {reviews.map((review, index) => (
+            {reviews.map((review: Review, index: number) => (
               <div key={index} className="lg:w-1/3 lg:mb-0 mb-6 p-4">
                 <div className="h-full text-center">
                   <img
