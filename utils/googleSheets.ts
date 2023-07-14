@@ -12,7 +12,7 @@ export async function getSheetsData(sheet: string) {
 
     const client = await auth.getClient();
 
-    const googleSheets = google.sheets({ version: "v4", auth: client });
+    const googleSheets = google.sheets("v4");
 
     const spreadsheetId = "1bjpOYpzhdxrayasCMIpFw6hvTsX4s6LWNDuQWzUxg54";
 
