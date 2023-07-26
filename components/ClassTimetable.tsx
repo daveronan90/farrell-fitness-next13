@@ -1,61 +1,68 @@
-import { getSheetsData } from "@/utils/googleSheets";
+"use client";
 
-const getData = async () => {
-  const res = await getSheetsData("Timetable");
-  return res;
-};
+import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { Cell, Row, defaultClasses } from "@/utils/classesData";
+import { getGoogleSheetsData } from "@/utils/googleSheets";
 
-type Cell = string | null;
+const Cell = ({
+  cell,
+  cIdx,
+  rIdx,
+}: {
+  cell: Cell;
+  cIdx: number;
+  rIdx: number;
+}) => (
+  <div
+    className={`flex items-center justify-center px-4 py-2 md:py-4 ${
+      cIdx === 0 && "text-xxs text-primary md:text-base "
+    }
+            ${
+              rIdx === 0 &&
+              cIdx !== 0 &&
+              "border-primary bg-primary text-xxs md:text-base"
+            }
+            ${rIdx !== 0 && rIdx % 2 === 0 && "bg-secondary-800 "}
+            ${cell !== null && rIdx !== 0 && cIdx !== 0 && ""}
+            `}
+  >
+    {cell !== "null" && cell}
+  </div>
+);
+const RowComponent = ({ row, rIdx }: { row: Row; rIdx: number }) => (
+  <div className={`grid grid-cols-8 gap-[0.1rem] divide-x-2 divide-y-2`}>
+    {row.map((cell, cIdx) => (
+      <Cell key={cIdx} cell={cell} rIdx={rIdx} cIdx={cIdx} />
+    ))}
+  </div>
+);
 
-type Row = Cell[];
+export default function ClassTimetable() {
+  const [classes, setClasses] = useState(defaultClasses);
 
-type Timetable = Row[];
-
-const defaultClasses: Timetable = [
-  [null, "mon", "tue", "wed", "thu", "fri", "sat", "sun"],
-  ["6:15", null, null, null, null, null, null, null],
-  ["7:00", null, null, null, null, null, null, null],
-  ["9:30", null, null, null, null, null, null, null],
-  ["9:45", null, null, null, null, null, null, null],
-  ["10:45", null, null, null, null, null, null, null],
-  ["16:15", null, null, null, null, null, null, null],
-  ["17:30", null, null, null, null, null, null, null],
-  ["18:45", null, null, null, null, null, null, null],
-];
-
-export default async function ClassTimetable() {
-  const classes: Timetable = (await getData()) || defaultClasses;
+  useEffect(() => {
+    getGoogleSheetsData("Timetable", setClasses);
+  }, []);
 
   return (
-    <div className="flex flex-col w-full justify-center items-start mb-12 md:mb-24">
-      <div className="flex flex-col space-y-1 text-2xl md:text-3xl mb-3 md:mb-6">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      className="mb-12 flex w-full flex-col items-start justify-center md:mb-24"
+    >
+      <div className="mb-3 flex flex-col space-y-1 text-2xl md:mb-6 md:text-3xl">
         <h1>summer timetable</h1>
-        <h2 className="text-xs md:text-base text-gray-500">
+        <h2 className="text-xs text-secondary-500 md:text-base">
           may 29 to 3 september
         </h2>
       </div>
-      <div className="grid grid-rows-9 text-center whitespace-normal md:text-sm text-xxxs w-full font-black">
+      <div className="grid-rows-9 grid w-full whitespace-normal text-center text-xxxs font-black md:text-sm">
         {classes.map((row, rIdx) => (
-          <div key={rIdx} className={`grid grid-cols-8 gap-[0.1rem]`}>
-            {row.map((cell, cIdx) => (
-              <div
-                key={cIdx}
-                className={`flex items-center justify-center md:py-4 py-2 px-4 ${
-                  cIdx === 0 && "text-orange-600 text-xxs md:text-base "
-                }
-            ${
-              rIdx === 0 && cIdx !== 0 && "bg-orange-600 text-xxs md:text-base "
-            }
-            ${rIdx !== 0 && rIdx % 2 === 0 && "bg-gray-600 "}
-            ${cell !== null && rIdx !== 0 && cIdx !== 0 && "border"}
-            `}
-              >
-                {cell !== "null" && cell}
-              </div>
-            ))}
-          </div>
+          <RowComponent key={rIdx} row={row} rIdx={rIdx} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

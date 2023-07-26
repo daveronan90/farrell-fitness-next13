@@ -2,44 +2,15 @@
 
 import { motion } from "framer-motion";
 import { Squash as Hamburger } from "hamburger-react";
-import { use, useState } from "react";
+import { useState } from "react";
 import TextLogo from "./FFTextLogo";
-
-type Heading = {
-  name: String;
-  url: String;
-};
-
-const headings: Heading[] = [
-  {
-    name: "home",
-    url: "",
-  },
-  {
-    name: "membership",
-    url: "pricing",
-  },
-  {
-    name: "classes",
-    url: "classes",
-  },
-  {
-    name: "services",
-    url: "services",
-  },
-  {
-    name: "results",
-    url: "results",
-  },
-  { name: "team", url: "team" },
-  { name: "gear", url: "merch" },
-];
+import { headings } from "@/utils/NavLinks";
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between my-4 lg:my-8">
+    <nav className="my-4 flex items-center justify-between lg:my-8">
       <a className="relative z-50" href="/">
         <TextLogo />
       </a>
@@ -51,12 +22,12 @@ export default function Nav() {
           <motion.div
             initial={{ opacity: 0, x: -100 }}
             animate={{ opacity: 1, x: 0 }}
-            className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-orange-600"
+            className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-primary"
           >
             <div className="flex h-full flex-col items-center justify-center space-y-12">
               {headings.map(({ name, url }, index) => (
                 <a
-                  className="hover:text-orange-800"
+                  className="hover:text-primary-800"
                   href={`/${url}`}
                   key={index}
                 >
@@ -67,9 +38,9 @@ export default function Nav() {
           </motion.div>
         )}
       </div>
-      <div className="lg:flex hidden w-full justify-end items-center relative z-20 space-x-6">
+      <div className="relative z-20 hidden w-full items-center justify-end space-x-6 lg:flex">
         {headings.map(({ name, url }, index) => (
-          <a className="hover:text-orange-800" href={`/${url}`} key={index}>
+          <a className="hover:text-primary-800" href={`/${url}`} key={index}>
             {name}
           </a>
         ))}

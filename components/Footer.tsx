@@ -1,18 +1,19 @@
-import React from "react";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="mt-6 md:mt-16">
-      <div className="flex items-center sm:flex-row flex-col">
-        <img
+    <div className="mt-6 md:mt-16">
+      <div className="flex flex-col items-center sm:flex-row">
+        <Image
+          width={400}
+          height={400}
           src="/images/LogoCycles.webp"
           alt="Logo"
           className="w-2/6 md:w-1/12"
         />
-
         <span className="ml-3 text-xl">Farrell Fitness</span>
-        <p className="text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+        <p className="mt-4 text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-secondary sm:py-2 sm:pl-4">
           {currentYear}© —
           <a
             href="mailto:daveronan90@gmail.com"
@@ -23,14 +24,14 @@ export default function Footer() {
             daveronan90@gmail.com
           </a>
         </p>
-        <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a href="https://www.facebook.com/farrellfitness17/" className="">
+        <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
+          <a href="https://www.facebook.com/farrellfitness17/">
             <svg
               fill="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className="w-5 h-5"
+              className="h-5 w-5 hover:fill-primary"
               viewBox="0 0 24 24"
             >
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -46,7 +47,7 @@ export default function Footer() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className="w-5 h-5"
+              className="h-5 w-5 hover:stroke-primary"
               viewBox="0 0 24 24"
             >
               <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -63,7 +64,7 @@ export default function Footer() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="0"
-              className="w-5 h-5"
+              className="h-5 w-5 hover:fill-primary"
               viewBox="0 0 24 24"
             >
               <path
@@ -75,6 +76,6 @@ export default function Footer() {
           </a>
         </span>
       </div>
-    </footer>
+    </div>
   );
 }

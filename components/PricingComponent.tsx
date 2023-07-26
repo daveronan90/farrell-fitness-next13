@@ -1,66 +1,44 @@
-import React from "react";
-
-const offers = [
-  {
-    title: "Classes + Gym",
-    subTitle: "1 Month",
-    price: "90",
-    services: ["Open Gym", "Expert-led sessions", "Engaging groups"],
-  },
-  {
-    title: "Gym",
-    subTitle: "1 year",
-    price: "549",
-    services: ["Flexible hours", "Diverse equipment", "Spacious environment"],
-  },
-  {
-    title: "Gym + Program",
-    subTitle: "3 Months",
-    price: "345",
-    services: ["Gym Access", "Personal coaching", "Tailored workouts"],
-  },
-];
+import { offers } from "@/utils/OffersData";
 
 export default function PricingComponent() {
   return (
-    <div className="flex md:flex-row flex-col gap-4">
-      {offers.map(({ title, subTitle, price, services }, index) => (
+    <div className="flex flex-col gap-4 md:flex-row">
+      {offers.map(({ title, subTitle, price, benefits }, index) => (
         <div
           key={index}
           className={`${
-            index === 1 ? "border-orange-600" : "border-gray-400"
-          } w-full border rounded-lg py-6 px-6 text-gray-400 space-y-4 relative`}
-          data-aos="fade"
+            index === 1 ? "border-primary" : "border-secondary-400"
+          } group relative w-full space-y-4 rounded-lg border px-6 py-6 text-secondary-400`}
         >
           <div
             className={`${
               index !== 1 && "hidden"
-            } absolute top-0 right-0 p-2 bg-orange-600 text-white rounded font-bold`}
+            } absolute right-0 top-0 rounded bg-primary p-2 font-bold text-secondary`}
           >
             popular
           </div>
 
-          <h3 className="md:text-base text-sm font-light">{subTitle}</h3>
+          <h3 className="text-sm font-light md:text-base">{subTitle}</h3>
           <h1 className="text-3xl">{title}</h1>
-          <h3 className="md:text-2xl text-sm font-bold text-white">
+          <h3 className="text-sm font-bold text-secondary md:text-2xl">
             € {price}
           </h3>
           <div
             className={`${
-              index === 1 ? "bg-orange-600" : "bg-gray-400"
+              index === 1 ? "bg-primary" : "bg-secondary-400"
             } h-[0.1rem] w-full rounded`}
           />
-          <ul className="md:text-base text-sm font-light pb-10 space-y-2">
-            {services.map((service, index) => (
+          <ul className="space-y-2 pb-10 text-sm font-light md:text-base">
+            {benefits.map((benefit, index) => (
               <div key={index} className="flex items-center">
-                <li>{service}</li>
+                <li>{benefit}</li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6 ml-2"
+                  className="ml-2 h-6 w-6"
                 >
                   <path
                     strokeLinecap="round"
@@ -75,9 +53,9 @@ export default function PricingComponent() {
             <div
               className={`${
                 index === 1
-                  ? "bg-orange-600 hover:bg-orange-800"
-                  : "bg-gray-400 hover:bg-gray-800"
-              } text-gray-200 px-3 py-2 rounded font-bold cursor-pointer`}
+                  ? "bg-primary hover:bg-primary-800"
+                  : "bg-secondary-400 hover:bg-secondary-800"
+              } cursor-pointer rounded px-3 py-2 font-bold text-secondary`}
             >
               Sign Up!
             </div>
