@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        style={{ fontFamily: "'Roboto', cursive" }}
+        style={{ fontFamily: "'Roboto', Arial, Helvetica, sans-serif" }}
         className={
           "container mx-auto max-w-5xl bg-slate-950 font-medium uppercase tracking-widest text-white w-full"
         }
