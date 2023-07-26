@@ -35,7 +35,12 @@ export default function PriceList() {
   }, []);
 
   return (
-    <div className="text-xxs md:text-base">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      className="text-xxs md:text-base"
+    >
       <div className="font-light">
         {priceList.map(({ category, services }) => (
           <div key={category} className="w-full">
@@ -55,6 +60,6 @@ export default function PriceList() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

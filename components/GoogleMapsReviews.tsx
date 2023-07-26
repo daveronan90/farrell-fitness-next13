@@ -53,13 +53,9 @@ const GoogleMapsReviews = () => {
           <div className="-m-4 flex flex-wrap">
             {reviews.map((review, index) => (
               <motion.div
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? -100 : 100,
-                  y: index % 2 === 0 ? -100 : 100,
-                }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
                 key={index}
                 className="mb-6 p-4 lg:mb-0 lg:w-1/3"
               >
