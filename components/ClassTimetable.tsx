@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
 import { Cell, Row, defaultClasses } from "@/utils/classesData";
 import { getGoogleSheetsData } from "@/utils/googleSheets";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const Cell = ({
   cell,

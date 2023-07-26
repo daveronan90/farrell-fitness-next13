@@ -1,9 +1,9 @@
 import PricingComponent from "@/components/PricingComponent";
 import ServiceIcon from "@/components/ServiceIcon";
 import VideoPlayer from "@/components/VideoPlayer";
-import Image from "next/image";
 import Logo from "@/public/images/LogoCycles.webp";
 import { facilities } from "@/utils/facilitiesData";
+import Image from "next/image";
 
 export default function Home() {
   return (

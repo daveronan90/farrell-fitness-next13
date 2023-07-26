@@ -4,7 +4,6 @@ import { getGoogleSheetsData } from "@/utils/googleSheets";
 import { defaultPriceList } from "@/utils/pricingData";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Skeleton from "react-loading-skeleton";
 
 const PriceListItem = ({
   desc,

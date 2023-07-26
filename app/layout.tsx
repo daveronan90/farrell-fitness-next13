@@ -8,7 +8,6 @@ import "@fontsource/roboto/700.css";
 import "@fontsource/roboto/900.css";
 import type { Metadata } from "next";
 import "./globals.css";
-import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata: Metadata = {
   icons: {

@@ -1,10 +1,10 @@
 "use client";
 
+import { headings } from "@/utils/NavLinks";
 import { motion } from "framer-motion";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import TextLogo from "./FFTextLogo";
-import { headings } from "@/utils/NavLinks";
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);

@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { Loader } from "@googlemaps/js-api-loader";
 import { defaultReviews } from "@/utils/reviewsData";
+import { Loader } from "@googlemaps/js-api-loader";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 function reduceWords(string: string, limit: number) {
   const words = string.trim().split(" ");
