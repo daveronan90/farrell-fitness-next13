@@ -45,6 +45,9 @@ export const getGoogleSheetsData = async (
     const res = await fetch(url);
 
     const data = await res.json();
+
+    if (data.error) return;
+
     const spreadsheetArr = data.values;
 
     if (tableName === "PriceList") {

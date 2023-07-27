@@ -5,15 +5,16 @@ import { motion } from "framer-motion";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import TextLogo from "./FFTextLogo";
+import Link from "next/link";
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);
 
   return (
     <nav className="my-4 flex items-center justify-between lg:my-8">
-      <a className="relative z-50" href="/">
+      <Link className="relative z-50" href="/">
         <TextLogo />
-      </a>
+      </Link>
       <div onClick={() => setToggled(!toggled)} className="lg:hidden">
         <div className="relative z-50 mr-2">
           <Hamburger toggled={toggled} toggle={setToggled} size={20} />
@@ -26,13 +27,13 @@ export default function Nav() {
           >
             <div className="flex h-full flex-col items-center justify-center space-y-12">
               {headings.map(({ name, url }, index) => (
-                <a
+                <Link
                   className="hover:text-primary-800"
                   href={`/${url}`}
                   key={index}
                 >
                   {name}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>
