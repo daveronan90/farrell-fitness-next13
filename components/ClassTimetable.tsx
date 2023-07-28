@@ -50,15 +50,15 @@ export default function ClassTimetable() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 2 }}
-      className="mb-12 flex w-full flex-col items-start justify-center md:mb-24"
+      className="flex flex-col items-start justify-center w-full mb-12 md:mb-24"
     >
-      <div className="mb-3 flex flex-col space-y-1 text-2xl md:mb-6 md:text-3xl">
+      <div className="flex flex-col mb-3 space-y-1 text-2xl md:mb-6 md:text-3xl">
         <h1>summer timetable</h1>
         <h2 className="text-xs text-secondary-500 md:text-base">
           may 29 to 3 september
         </h2>
       </div>
-      <div className="grid-rows-9 grid w-full whitespace-normal text-center text-xxxs font-black md:text-sm">
+      <div className="grid w-full font-black text-center whitespace-normal grid-rows-9 text-xxxs md:text-sm">
         {classes.map((row, rIdx) => (
           <RowComponent key={rIdx} row={row} rIdx={rIdx} />
         ))}

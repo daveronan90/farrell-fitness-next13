@@ -8,35 +8,35 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <div className="flex justify-center items-center">
+      <div className="flex items-center justify-center">
         <Image src={Logo} alt="Logo" priority />
       </div>
       <VideoPlayer videoPath="/videos/OpenGym.mp4" />
       <div>
-        <h1 className="md:text-8xl text-4xl font-black text-center flex flex-col">
+        <h1 className="flex flex-col text-4xl font-black text-center md:text-8xl">
           <span className="leading-snug tracking-tight text-shadow">
             sign up to
           </span>
           <a
             href="https://legitfit.com/authenticate/signup/FarrellFitness"
-            className="text-primary hover:text-primary-800 hover:cursor-pointer leading-snug tracking-tight"
+            className="leading-snug tracking-tight text-primary hover:text-primary-800 hover:cursor-pointer"
           >
             farrell fitness
           </a>
           <span className="leading-snug tracking-tight text-shadow">now</span>
         </h1>
       </div>
-      <h1 className="md:text-8xl text-4xl text-center leading-snug tracking-tight font-black">
+      <h1 className="text-4xl font-black leading-snug tracking-tight text-center md:text-8xl">
         Opening Hours
       </h1>
-      <div className="md:space-y-8 space-y-4 text-sm">
-        <p className="flex justify-between items-center w-full md:text-4xl">
+      <div className="space-y-4 text-sm md:space-y-8">
+        <p className="flex items-center justify-between w-full md:text-4xl">
           <span>Monday - Friday</span>
-          <span className="bg-primary px-2 py-1">6:00am - 9:30pm</span>
+          <span className="px-2 py-1 bg-primary">6:00am - 9:30pm</span>
         </p>
         <p className="flex justify-between w-full md:text-4xl">
           <span>Saturday - Sunday</span>
-          <span className="bg-primary px-2 py-1">8:00am - 4:00pm</span>
+          <span className="px-2 py-1 bg-primary">8:00am - 4:00pm</span>
         </p>
       </div>
       <PricingComponent />
@@ -50,9 +50,9 @@ export default function Home() {
           />
         ))}
       </ul>
-      <section className="aspect-square relative flex justify-center items-center">
-        <div className="flex space-y-12 h-full">
-          <div className="bg-secondary-300 overflow-hidden p-10 flex items-end justify-start relative -mx-6 md:mx-0">
+      <section className="relative flex items-center justify-center aspect-square">
+        <div className="flex h-full space-y-12">
+          <div className="relative flex items-end justify-start p-10 -mx-6 overflow-hidden bg-secondary-300 md:mx-0">
             <iframe
               className="absolute inset-0"
               title="map"
@@ -60,15 +60,15 @@ export default function Home() {
               width="100%"
               height="100%"
             ></iframe>
-            <div className="tracking-normal bg-secondary relative flex flex-wrap py-6 rounded shadow-md text-secondary-950">
-              <div className="lg:w-1/2 px-6">
+            <div className="relative flex flex-wrap py-6 tracking-normal rounded shadow-md bg-secondary text-secondary-950">
+              <div className="px-6 lg:w-1/2">
                 <h2 className="">
                   Farrell Fitness 27, Woodbine Business Park, New Ross, Co.
                   Wexford
                 </h2>
                 <p className="mt-1 text-secondary-400">Gym & Fitness Center</p>
               </div>
-              <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
+              <div className="px-6 mt-4 lg:w-1/2 lg:mt-0">
                 <h2 className="pr-4">EMAIL</h2>
                 <a
                   href="mailto:info.farrellfitness@gmail.com"

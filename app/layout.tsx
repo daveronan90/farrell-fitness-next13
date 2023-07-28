@@ -36,21 +36,21 @@ export default function RootLayout({
       >
         <div
           style={{ clipPath: "polygon(100% 0, 60% 0, 100% 100%)" }}
-          className="fixed inset-0 -z-10 bg-orange-600 opacity-75"
+          className="fixed inset-0 bg-orange-600 opacity-75 -z-10"
         ></div>
         <div
           style={{ clipPath: "polygon(100% 0, 75% 0, 100% 65%)" }}
-          className="fixed inset-0 -z-20 bg-orange-600"
+          className="fixed inset-0 bg-orange-600 -z-20"
         ></div>
         <div
           style={{ clipPath: "polygon(45% 0, 55% 0, 95% 100%, 85% 100%)" }}
-          className="fixed inset-0 -z-20 bg-orange-600 opacity-25"
+          className="fixed inset-0 bg-orange-600 opacity-25 -z-20"
         ></div>
         <Nav />
         <div className="h-[.1rem] bg-gray-200 rounded overflow-hidden relative z-20">
           <div className="w-24 h-full bg-orange-600"></div>
         </div>
-        <div className="relative mx-6 my-12 md:my-24 space-y-12 md:space-y-24">
+        <div className="relative mx-6 my-12 space-y-12 md:my-24 md:space-y-24">
           {children}
           <Footer />
         </div>

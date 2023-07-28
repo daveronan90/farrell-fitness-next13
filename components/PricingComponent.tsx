@@ -28,7 +28,7 @@ export default function PricingComponent() {
               index === 1 ? "bg-primary" : "bg-secondary-400"
             } h-[0.1rem] w-full rounded`}
           />
-          <ul className="space-y-2 pb-10 text-sm font-light md:text-base">
+          <ul className="pb-10 space-y-2 text-sm font-light md:text-base">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-center">
                 <li>{benefit}</li>
@@ -38,7 +38,7 @@ export default function PricingComponent() {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="ml-2 h-6 w-6"
+                  className="w-6 h-6 ml-2"
                 >
                   <path
                     strokeLinecap="round"

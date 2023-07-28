@@ -18,17 +18,17 @@ export default function Page() {
       >
         <div className="flex flex-wrap -m-4">
           {services.map(({ title, subTitle, excerpt, url }, index) => (
-            <div key={index} className="md:w-1/3 p-4">
-              <div className="bg-secondary-900 p-6 rounded-lg">
+            <div key={index} className="p-4 md:w-1/3">
+              <div className="p-6 rounded-lg bg-secondary-900">
                 <Image
                   width={300}
                   height={200}
-                  className="h-40 rounded w-full object-cover object-center mb-6"
+                  className="object-cover object-center w-full h-40 mb-6 rounded"
                   src={url}
                   alt="content"
                 />
-                <h3 className="text-primary text-xs font-medium">{subTitle}</h3>
-                <h2 className="text-lg font-medium mb-4">{title}</h2>
+                <h3 className="text-xs font-medium text-primary">{subTitle}</h3>
+                <h2 className="mb-4 text-lg font-medium">{title}</h2>
                 <p className="text-sm">{excerpt}</p>
                 <Button text="Sign up" />
               </div>

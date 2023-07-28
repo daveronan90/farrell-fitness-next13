@@ -50,21 +50,21 @@ const GoogleMapsReviews = () => {
     <div>
       <section className="my-12">
         <div className="">
-          <div className="-m-4 flex flex-wrap">
+          <div className="flex flex-wrap -m-4">
             {reviews.map((review, index) => (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2 }}
                 key={index}
-                className="mb-6 p-4 lg:mb-0 lg:w-1/3"
+                className="p-4 mb-6 lg:mb-0 lg:w-1/3"
               >
                 <div className="h-full text-center">
                   <Image
                     width={400}
                     height={400}
                     alt="testimonial"
-                    className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-primary-200 bg-primary-100 object-cover object-center"
+                    className="inline-block object-cover object-center w-20 h-20 mb-8 border-2 rounded-full border-primary-200 bg-primary-100"
                     src={review.authorAttribution.photoURI}
                   />
                   <a
@@ -75,8 +75,8 @@ const GoogleMapsReviews = () => {
                       {reduceWords(review.text, 30)}
                     </p>
                   </a>
-                  <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-primary"></span>
-                  <h2 className="title-font text-sm font-bold tracking-wider text-primary">
+                  <span className="inline-block w-10 h-1 mt-6 mb-4 rounded bg-primary"></span>
+                  <h2 className="text-sm font-bold tracking-wider title-font text-primary">
                     {review.authorAttribution.displayName}
                   </h2>
                   <p className="flex items-center justify-center text-primary">

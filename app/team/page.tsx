@@ -15,20 +15,20 @@ export default function Page() {
         summary="Meet the dynamic team at Farrell Fitness, a group of fitness professionals committed to transforming lives. From experienced trainers and coaches to knowledgeable staff, we are here to guide and support you on your fitness journey."
         videoPath="/videos/oldMainVideo.mp4"
       >
-        <div className="flex flex-wrap text-base font-medium justify-center">
+        <div className="flex flex-wrap justify-center text-base font-medium">
           {team.map(({ desc, name, position, url }, index) => (
             <div key={index} className="p-4 lg:w-1/3">
-              <div className="h-full flex flex-col items-center text-center">
+              <div className="flex flex-col items-center h-full text-center">
                 <Image
                   width={450}
                   height={300}
                   alt="team"
-                  className="flex-shrink-0 rounded-lg w-full h-56 object-cover object-center mb-4"
+                  className="flex-shrink-0 object-cover object-center w-full h-56 mb-4 rounded-lg"
                   src={url}
                 />
                 <div className="w-full">
-                  <h2 className="font-semibold text-lg ">{name}</h2>
-                  <h3 className="text-primary mb-3">{position}</h3>
+                  <h2 className="text-lg font-semibold ">{name}</h2>
+                  <h3 className="mb-3 text-primary">{position}</h3>
                   <p className="mb-4 text-sm">{desc}</p>
                 </div>
               </div>

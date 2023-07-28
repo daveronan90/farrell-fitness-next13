@@ -1,6 +1,6 @@
 export default function FF() {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-around">
+    <div className="flex flex-col items-center justify-around w-full h-full">
       <a href="https://legitfit.com/authenticate/signup/FarrellFitness">
         <svg
           className="h-52 fill-secondary-950 stroke-secondary hover:fill-secondary md:h-[25rem]"

@@ -19,7 +19,7 @@ const PriceListItem = ({
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 2 }}
-    className="ml-2 flex font-normal md:ml-4"
+    className="flex ml-2 font-normal md:ml-4"
   >
     <div className="py-3">{desc}</div>
     <div className="flex-grow px-2 py-3 md:px-12">
@@ -36,17 +36,17 @@ export default function PriceList() {
   }, []);
 
   return priceList.length <= 1 ? (
-    <div className="flex flex-col md:space-y-4 md:my-12 py-6">
+    <div className="flex flex-col py-6 md:space-y-4 md:my-12">
       {new Array(4).fill("x").map((a, indexH) => (
         <>
           <Skeleton
             key={indexH}
-            className="animate-pulse w-1/3 h-4 md:h-10 md:my-6"
+            className="w-1/3 h-4 animate-pulse md:h-10 md:my-6"
           />
           {new Array(4).fill("x").map((_, index) => (
             <Skeleton
               key={index}
-              className="animate-pulse w-11/12 ml-4 h-2 md:h-4"
+              className="w-11/12 h-2 ml-4 animate-pulse md:h-4"
             />
           ))}
         </>

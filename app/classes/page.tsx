@@ -20,21 +20,21 @@ export default function Page() {
 
         <div className="flex flex-wrap">
           {highlightClasses.map(({ title, excerpt, url }, index) => (
-            <div key={index} className="p-4 md:w-1/3 sm:mb-0 mb-6">
-              <div className="rounded-lg h-64 overflow-hidden">
+            <div key={index} className="p-4 mb-6 md:w-1/3 sm:mb-0">
+              <div className="h-64 overflow-hidden rounded-lg">
                 <Image
                   width={900}
                   height={600}
                   alt="content"
-                  className="object-cover object-center h-full w-full"
+                  className="object-cover object-center w-full h-full"
                   src={url}
                 />
               </div>
               <h2 className="mt-5 text-lg font-bold text-primary">{title}</h2>
-              <p className="text-sm mt-2">{excerpt}</p>
+              <p className="mt-2 text-sm">{excerpt}</p>
               <a
                 href="https://legitfit.com/authenticate/signup/FarrellFitness"
-                className="text-primary inline-flex items-center mt-3 hover:text-primary-800"
+                className="inline-flex items-center mt-3 text-primary hover:text-primary-800"
               >
                 sign up
                 <svg

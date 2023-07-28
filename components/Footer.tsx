@@ -24,14 +24,14 @@ export default function Footer() {
             daveronan90@gmail.com
           </a>
         </p>
-        <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
+        <span className="inline-flex justify-center mt-4 sm:ml-auto sm:mt-0 sm:justify-start">
           <a href="https://www.facebook.com/farrellfitness17/">
             <svg
               fill="currentColor"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className="h-5 w-5 hover:fill-primary"
+              className="w-5 h-5 hover:fill-primary"
               viewBox="0 0 24 24"
             >
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -47,7 +47,7 @@ export default function Footer() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              className="h-5 w-5 hover:stroke-primary"
+              className="w-5 h-5 hover:stroke-primary"
               viewBox="0 0 24 24"
             >
               <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -64,7 +64,7 @@ export default function Footer() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="0"
-              className="h-5 w-5 hover:fill-primary"
+              className="w-5 h-5 hover:fill-primary"
               viewBox="0 0 24 24"
             >
               <path
