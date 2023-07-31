@@ -1,8 +1,16 @@
 "use client";
 
-import { ServiceGroup } from "@/utils/pricingData";
 import { motion } from "framer-motion";
 import Skeleton from "react-loading-skeleton";
+
+interface ServiceGroup {
+  category: string;
+  services: {
+    desc: string;
+    duration: string;
+    price: string;
+  }[];
+}
 
 const PriceListItem = ({
   desc,
