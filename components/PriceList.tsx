@@ -1,9 +1,7 @@
 "use client";
 
-import { getGoogleSheetsData } from "@/utils/googleSheets";
-import { defaultPriceList } from "@/utils/pricingData";
+import { ServiceGroup } from "@/utils/pricingData";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 
 const PriceListItem = ({
@@ -28,13 +26,11 @@ const PriceListItem = ({
     <div className="py-3">{price !== "0" && `€${price}`}</div>
   </motion.div>
 );
-export default function PriceList() {
-  const [priceList, setPriceList] = useState(defaultPriceList);
-
-  useEffect(() => {
-    getGoogleSheetsData("PriceList", setPriceList);
-  }, []);
-
+export default function PriceList({
+  priceList,
+}: {
+  priceList: ServiceGroup[];
+}) {
   return priceList.length <= 1 ? (
     <div className="flex flex-col py-6 md:space-y-4 md:my-12">
       {new Array(4).fill("x").map((a, indexH) => (

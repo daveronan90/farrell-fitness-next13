@@ -4,11 +4,17 @@ import { highlightClasses } from "@/utils/highlightClassesData";
 import { Metadata } from "next";
 import Image from "next/image";
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "Classes",
 };
 
-export default function Page() {
+export default async function Page() {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${process.env.NEXT_PUBLIC_SHEET_ID}/values/Timetable?key=${process.env.NEXT_PUBLIC_PLACES_API_KEY}`;
+  const res = await fetch(url);
+  const { values: classes } = await res.json();
+
   return (
     <>
       <PageLayout
@@ -16,7 +22,7 @@ export default function Page() {
         summary="Build muscle, improve movement patterns in our team-based strength and conditioning classes. Get expert guidance and form correction from our coaches."
         videoPath="/videos/classesVideo.mp4"
       >
-        <ClassTimetable />
+        <ClassTimetable classes={classes} />
 
         <div className="flex flex-wrap">
           {highlightClasses.map(({ title, excerpt, url }, index) => (

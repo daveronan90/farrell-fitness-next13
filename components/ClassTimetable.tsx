@@ -1,9 +1,10 @@
 "use client";
 
-import { Cell, Row, defaultClasses } from "@/utils/classesData";
-import { getGoogleSheetsData } from "@/utils/googleSheets";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+
+type Cell = string | null;
+type Row = Cell[];
+type Timetable = Row[];
 
 const Cell = ({
   cell,
@@ -38,13 +39,7 @@ const RowComponent = ({ row, rIdx }: { row: Row; rIdx: number }) => (
   </div>
 );
 
-export default function ClassTimetable() {
-  const [classes, setClasses] = useState(defaultClasses);
-
-  useEffect(() => {
-    getGoogleSheetsData("Timetable", setClasses);
-  }, []);
-
+export default function ClassTimetable({ classes }: { classes: Timetable }) {
   return (
     <motion.div
       initial={{ opacity: 0 }}

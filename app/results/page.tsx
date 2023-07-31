@@ -3,11 +3,13 @@ import PageLayout from "@/components/PageLayout";
 import { Metadata } from "next";
 import Image from "next/image";
 
+export const revalidate = 86400;
+
 export const metadata: Metadata = {
   title: "Results",
 };
 
-export default function Page() {
+export default async function Page() {
   function generateRandomIntegers() {
     const result = [];
     for (let i = 0; i <= 5; i++) {
@@ -18,6 +20,11 @@ export default function Page() {
   }
 
   let randomNumbers = generateRandomIntegers();
+
+  const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${process.env.NEXT_PUBLIC_PLACE_ID}&fields=reviews&key=${process.env.NEXT_PUBLIC_PLACES_API_KEY}`;
+  const res = await fetch(url);
+  const data = await res.json();
+
   return (
     <>
       <PageLayout
@@ -93,7 +100,7 @@ export default function Page() {
       <div className="h-[0.1rem] bg-secondary relative">
         <div className="absolute w-1/2 h-full bg-primary"></div>
       </div>
-      <GoogleMapsReviews />
+      <GoogleMapsReviews reviews={data.result.reviews} />
     </>
   );
 }

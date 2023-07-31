@@ -1,10 +1,20 @@
 "use client";
 
-import { defaultReviews } from "@/utils/reviewsData";
-import { Loader } from "@googlemaps/js-api-loader";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+
+interface Review {
+  author_name: string;
+  author_url: string;
+  language: string;
+  original_language: string;
+  profile_photo_url: string;
+  rating: number;
+  relative_time_description: string;
+  text: string;
+  time: number;
+  translated: boolean;
+}
 
 function reduceWords(string: string, limit: number) {
   const words = string.trim().split(" ");
@@ -19,33 +29,7 @@ function reduceWords(string: string, limit: number) {
   return `${reducedString}...`;
 }
 
-const GoogleMapsReviews = () => {
-  const [reviews, setReviews] = useState(defaultReviews);
-
-  const googleData = async () => {
-    try {
-      const loader = new Loader({
-        apiKey: process.env.NEXT_PUBLIC_PLACES_API_KEY || "",
-        version: "beta",
-        libraries: ["places"],
-      });
-
-      const { Place } = await loader.importLibrary("places");
-
-      const place = new Place({ id: process.env.NEXT_PUBLIC_PLACE_ID });
-
-      const reviews = await place.fetchFields({ fields: ["reviews"] });
-
-      setReviews(reviews.place.g.reviews);
-    } catch (error) {
-      console.error("Failed to fetch reviews:", error);
-    }
-  };
-
-  useEffect(() => {
-    googleData();
-  }, []);
-
+const GoogleMapsReviews = ({ reviews }: { reviews: Review[] }) => {
   return (
     <div>
       <section className="my-12">
@@ -65,10 +49,10 @@ const GoogleMapsReviews = () => {
                     height={400}
                     alt="testimonial"
                     className="inline-block object-cover object-center w-20 h-20 mb-8 border-2 rounded-full border-primary-200 bg-primary-100"
-                    src={review.authorAttribution.photoURI}
+                    src={review.profile_photo_url}
                   />
                   <a
-                    href={review.authorAttribution.uri}
+                    href={review.author_url}
                     className="hover:text-primary-800"
                   >
                     <p className="text-sm leading-relaxed">
@@ -77,7 +61,7 @@ const GoogleMapsReviews = () => {
                   </a>
                   <span className="inline-block w-10 h-1 mt-6 mb-4 rounded bg-primary"></span>
                   <h2 className="text-sm font-bold tracking-wider title-font text-primary">
-                    {review.authorAttribution.displayName}
+                    {review.author_name}
                   </h2>
                   <p className="flex items-center justify-center text-primary">
                     {Array.from({ length: review.rating }, () => 1).map(
